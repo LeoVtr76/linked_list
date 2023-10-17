@@ -14,6 +14,16 @@ void printList(data *_head){
     printList(_head->next);
 
 }
+void deleteFirst(data **_head) {
+    if (*_head == NULL) {
+        printf("La liste est déjà vide.\n");
+        return;
+    }
+    data *temp = *_head;
+    *_head = (*_head)->next;
+    free(temp);
+    printf("Le premier élément a été supprimé.\n");
+}
 void insert(data **head, data *a) {
     data *newData = (data *)malloc(sizeof(data));
     printf("Entrez une valeur : ");
@@ -36,6 +46,17 @@ void sum(data *_head){
         _head = _head->next;
     }
     printf("La somme est : %d\n", sum);
+}
+
+void min(data *_head){
+    int min = _head->value;
+    while(_head !=NULL){
+        if(_head->value < min ){
+            min = _head->value;
+        }
+        _head = _head->next;
+    }
+    printf("Le minimum est : %d\n", min);
 }
 int main() {
     data *head = NULL;
@@ -67,6 +88,9 @@ int main() {
     printList(head);
     count(head);
     sum(head);
+    min(head);
+    deleteFirst(&head);
+    printList(head);
     return 0;
 
 }
