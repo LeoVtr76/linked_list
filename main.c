@@ -1,22 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct data {
+typedef struct datas {
     int value;
-    struct data *next;
-};
-
+    struct datas *next;
+}data;
+void printList(data *_head){
+    while(_head !=NULL){
+        printf("%d ", _head->value);
+        _head = _head->next;
+    }
+}
 int main() {
-    struct data *head = NULL;
-    struct data *a = NULL;
-    struct data *b = NULL;
-    struct data *c = NULL;
-    struct data *d = NULL;
+    data *head = NULL;
+    data *a = NULL;
+    data *b = NULL;
+    data *c = NULL;
+    data *d = NULL;
 
-    a = (struct data *)malloc(sizeof(struct data));
-    b = (struct data *)malloc(sizeof(struct data));
-    c = (struct data *)malloc(sizeof(struct data));
-    d = (struct data *)malloc(sizeof(struct data));
+    head = (data *)malloc(sizeof(data));
+    a = (data *)malloc(sizeof(data));
+    b = (data *)malloc(sizeof(data));
+    c = (data *)malloc(sizeof(data));
+    d = (data *)malloc(sizeof(data));  
     head = a; 
 
     a->value = 12; 
@@ -30,5 +36,15 @@ int main() {
 
     d->value = 9;
     d-> next = NULL;
+    
+    data *e = NULL;
+    e = (data*) malloc(sizeof(data));
+    printf("Entrez une valeur");
+    scanf("%d", &e->value);
+    b->next = e;
+    e->next = c;
+
+    printList(head);
     return 0;
+
 }
