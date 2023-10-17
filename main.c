@@ -12,10 +12,6 @@ void printList(data *_head){
     }
     printf("\n");
 }
-void insert (){
-    data * new_value = NULL;
-    new_value =(data*)malloc (sizeof(data));
-}
 int main() {
     data *head = NULL;
     data *a = NULL;
