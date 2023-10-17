@@ -29,7 +29,14 @@ void count(data *_head){
     }
     printf("Il y a %d élements.\n", i);
 }
-
+void sum(data *_head){
+    int sum=0;
+    while(_head !=NULL){
+        sum+=_head->value;
+        _head = _head->next;
+    }
+    printf("La somme est : %d\n", sum);
+}
 int main() {
     data *head = NULL;
     data *a = NULL;
@@ -59,6 +66,7 @@ int main() {
     insert(&head, a);
     printList(head);
     count(head);
+    sum(head);
     return 0;
 
 }
